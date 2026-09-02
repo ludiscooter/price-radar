@@ -312,14 +312,14 @@ document.addEventListener('DOMContentLoaded', () => {
           (store) => `
         <div class="store-item">
           <div class="store-left">
-            <span>🛒</span>
-            <b>${store.name}</b>
-            <small style="color:#fcd34d">${store.rating}</small>
+            <span class="store-icon">🛒</span>
+            <span class="store-name">${store.name}</span>
+            <span class="store-rating">${store.rating}</span>
             ${store.isBest ? '<span class="store-badge-best">Найкраща ціна</span>' : ''}
           </div>
           <div class="store-right">
             <span class="store-price">${store.price}</span>
-            <a href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer" class="primary-cta small" style="min-height:32px;padding:0 12px;font-size:12px">Перейти</a>
+            <a href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer" class="store-btn">Перейти</a>
           </div>
         </div>
       `,
