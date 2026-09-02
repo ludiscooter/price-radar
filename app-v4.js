@@ -74,20 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const iconSvg = {
-    phone: '<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>',
-    gamepad: '<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="12" x2="10" y2="12"></line><line x1="8" y1="10" x2="8" y2="14"></line><line x1="15" y1="13" x2="15.01" y2="13"></line><line x1="18" y1="11" x2="18.01" y2="11"></line><rect x="2" y="6" width="20" height="12" rx="6"></rect></svg>',
-    laptop: '<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 16V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10"></path><line x1="2" y1="20" x2="22" y2="20"></line></svg>',
-    tv: '<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
-    watch: '<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"></circle><polyline points="12 9 12 12 13.5 13.5"></polyline><path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 0 1 9.83 1h4.34a2 2 0 0 1 2 1.82l.35 3.83"></path></svg>',
-  };
-
   const liveDeals = [
-    { icon: iconSvg.phone, product: 'iPhone 16 128GB', oldPrice: '39 199 ₴', newPrice: '36 899 ₴', change: '−6%' },
-    { icon: iconSvg.gamepad, product: 'PlayStation 5 Slim', oldPrice: '25 999 ₴', newPrice: '23 499 ₴', change: '−10%' },
-    { icon: iconSvg.laptop, product: 'MacBook Air M3', oldPrice: '47 299 ₴', newPrice: '44 799 ₴', change: '−5%' },
-    { icon: iconSvg.tv, product: 'Samsung OLED 55', oldPrice: '57 999 ₴', newPrice: '52 499 ₴', change: '−9%' },
-    { icon: iconSvg.watch, product: 'Apple Watch Series 10', oldPrice: '18 899 ₴', newPrice: '17 699 ₴', change: '−6%' },
+    { icon: '📱', product: 'iPhone 16 128GB', oldPrice: '39 199 ₴', newPrice: '36 899 ₴', change: '−6%' },
+    { icon: '🎮', product: 'PlayStation 5 Slim', oldPrice: '25 999 ₴', newPrice: '23 499 ₴', change: '−10%' },
+    { icon: '💻', product: 'MacBook Air M3', oldPrice: '47 299 ₴', newPrice: '44 799 ₴', change: '−5%' },
+    { icon: '📺', product: 'Samsung OLED 55', oldPrice: '57 999 ₴', newPrice: '52 499 ₴', change: '−9%' },
+    { icon: '⌚', product: 'Apple Watch Series 10', oldPrice: '18 899 ₴', newPrice: '17 699 ₴', change: '−6%' },
   ];
 
   const pushNotice = document.querySelector('.push');
@@ -100,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const renderLiveDeal = () => {
     const deal = liveDeals[activeDeal];
-    if (dealIcon) dealIcon.innerHTML = deal.icon;
+    if (dealIcon) dealIcon.textContent = deal.icon;
     if (dealProduct) dealProduct.textContent = deal.product;
     if (dealOldPrice) dealOldPrice.textContent = deal.oldPrice;
     if (dealNewPrice) dealNewPrice.textContent = deal.newPrice;
@@ -120,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const offerSlides = [
     {
-      icon: iconSvg.phone, product: 'iPhone 16 128GB', bestPrice: '36 899 ₴', count: '12 пропозицій',
+      icon: '📱', product: 'iPhone 16 128GB', bestPrice: '36 899 ₴', count: '12 пропозицій',
       shops: [
         ['Smart Store', '★ 4.9', '36 899 ₴'],
         ['Tech Market', '★ 4.8', '37 240 ₴'],
@@ -128,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
     },
     {
-      icon: iconSvg.gamepad, product: 'PlayStation 5 Slim', bestPrice: '23 499 ₴', count: '9 пропозицій',
+      icon: '🎮', product: 'PlayStation 5 Slim', bestPrice: '23 499 ₴', count: '9 пропозицій',
       shops: [
         ['Game Point', '★ 4.9', '23 499 ₴'],
         ['Console Hub', '★ 4.8', '23 890 ₴'],
@@ -136,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
     },
     {
-      icon: iconSvg.laptop, product: 'MacBook Air M3', bestPrice: '44 799 ₴', count: '15 пропозицій',
+      icon: '💻', product: 'MacBook Air M3', bestPrice: '44 799 ₴', count: '15 пропозицій',
       shops: [
         ['Apple Room', '★ 4.9', '44 799 ₴'],
         ['Notebook Shop', '★ 4.8', '45 190 ₴'],
@@ -168,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const paintOffer = () => {
     const slide = offerSlides[activeOffer];
-    if (offerFields.icon) offerFields.icon.innerHTML = slide.icon;
+    if (offerFields.icon) offerFields.icon.textContent = slide.icon;
     if (offerFields.product) offerFields.product.textContent = slide.product;
     if (offerFields.position) offerFields.position.textContent = `${activeOffer + 1} / ${offerSlides.length}`;
     if (offerFields.bestPrice) offerFields.bestPrice.textContent = slide.bestPrice;
