@@ -244,6 +244,28 @@ body.is-ready .hero-visual { animation: hero-visual-in 1s 0.12s cubic-bezier(0.2
   to { opacity: 1; transform: none; }
 }
 
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes radar-ping {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.96); opacity: 0.8; }
+  60% { transform: scale(1.16); opacity: 0; }
+  100% { transform: scale(1.16); opacity: 0; }
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .push {
   width: min(400px, calc(100% - 56px));
   max-width: 400px;
@@ -625,6 +647,9 @@ body.is-ready .hero-visual { animation: hero-visual-in 1s 0.12s cubic-bezier(0.2
   .ambient,
   .cta-panel::after,
   .deal-track,
+  .radar-beam,
+  .radar-blip,
+  .tg-pulse-ring,
   .live-label i { animation: none !important; }
   .offer-carousel .offer-list { transition: none; }
   *, *::before, *::after {
