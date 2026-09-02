@@ -24,26 +24,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll reveal animations
   const revealTargets = document.querySelectorAll(
-    '.section-heading, .card, .steps article, .categories span, .cat-pill, .cat-deal-card, .faq-list details, .stats-grid > div, .live-radar-head, .deal-marquee, .cta-panel, .radar-result, .calc-card',
+    '.section-heading, .card, .steps article, .categories span, .cat-pill, .cat-deal-card, .faq-list details, .stats-grid > div, .live-radar-head, .deal-marquee, .cta-panel',
   );
 
   if (reducedMotion || !('IntersectionObserver' in window)) {
-    revealTargets.forEach((element) => element.classList.add('is-visible'));
+    revealTargets.forEach((element) => {
+      element.classList.add('is-visible', 'is-in-view');
+    });
   } else {
     revealTargets.forEach((element, index) => {
-      element.classList.add('reveal');
-      element.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+      // Check if already in viewport
+      const rect = element.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        element.classList.add('is-visible', 'is-in-view');
+      } else {
+        element.classList.add('reveal');
+        element.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+      }
     });
 
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
+          entry.target.classList.add('is-visible', 'is-in-view');
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+      { threshold: 0.05, rootMargin: '50px 0px 50px 0px' },
     );
 
     revealTargets.forEach((element) => revealObserver.observe(element));

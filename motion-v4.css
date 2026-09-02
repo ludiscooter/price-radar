@@ -134,14 +134,26 @@
 /* Scroll Reveal Animation */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.reveal.is-in-view {
-  opacity: 1;
-  transform: translateY(0);
+.reveal.is-in-view,
+.reveal.is-visible,
+.is-visible,
+.is-in-view {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Radar result & interactive cards must always be visible */
+#radar-result,
+.radar-result,
+.calc-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
 }
 
 /* Hero Push Card Subtle Floating */
