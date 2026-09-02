@@ -53,9 +53,13 @@
         </div>
         <div class="hero-visual">
           <img src="price-radar-welcome.png" alt="Price Radar знаходить вигідні пропозиції та відстежує зміну цін" />
-          <div class="push">
-            <span class="push-icon">🔔</span>
-            <span><small>Ціна змінилася</small><b>Тепер на 2 300 ₴ дешевше</b></span>
+          <div class="push" aria-live="polite">
+            <span class="push-icon" id="deal-icon">📱</span>
+            <span class="deal-copy">
+              <small id="deal-product">iPhone 16 128GB</small>
+              <b><s id="deal-old-price">39 199 ₴</s><strong id="deal-new-price">36 899 ₴</strong></b>
+            </span>
+            <em class="deal-badge" id="deal-change">−6%</em>
           </div>
         </div>
       </section>
@@ -65,6 +69,36 @@
           <div><b data-count="8">8</b><span>популярних категорій</span></div>
           <div><b data-count="3">3</b><span>режими сповіщень</span></div>
           <div><b data-count="1">1</b><span>кнопка для відстеження</span></div>
+        </div>
+      </section>
+
+      <section class="live-radar" aria-labelledby="live-radar-title">
+        <div class="shell live-radar-head">
+          <span class="live-label"><i></i> LIVE</span>
+          <div>
+            <h2 id="live-radar-title">Ціни рухаються. Радар не зупиняється.</h2>
+            <p>Приклади змін, які Price Radar може помітити за вас.</p>
+          </div>
+        </div>
+        <div class="deal-marquee">
+          <div class="deal-track">
+            <div class="deal-group">
+              <article class="moving-deal"><span>📱</span><div><small>iPhone 16 128GB</small><b>36 899 ₴</b><s>39 199 ₴</s></div><em>−6%</em></article>
+              <article class="moving-deal"><span>🎮</span><div><small>PlayStation 5 Slim</small><b>23 499 ₴</b><s>25 999 ₴</s></div><em>−10%</em></article>
+              <article class="moving-deal"><span>💻</span><div><small>MacBook Air M3</small><b>44 799 ₴</b><s>47 299 ₴</s></div><em>−5%</em></article>
+              <article class="moving-deal"><span>📺</span><div><small>Samsung OLED 55</small><b>52 499 ₴</b><s>57 999 ₴</s></div><em>−9%</em></article>
+              <article class="moving-deal"><span>⌚</span><div><small>Apple Watch Series 10</small><b>17 699 ₴</b><s>18 899 ₴</s></div><em>−6%</em></article>
+              <article class="moving-deal"><span>🎧</span><div><small>Sony WH-1000XM5</small><b>12 199 ₴</b><s>13 499 ₴</s></div><em>−10%</em></article>
+            </div>
+            <div class="deal-group" aria-hidden="true">
+              <article class="moving-deal"><span>📱</span><div><small>iPhone 16 128GB</small><b>36 899 ₴</b><s>39 199 ₴</s></div><em>−6%</em></article>
+              <article class="moving-deal"><span>🎮</span><div><small>PlayStation 5 Slim</small><b>23 499 ₴</b><s>25 999 ₴</s></div><em>−10%</em></article>
+              <article class="moving-deal"><span>💻</span><div><small>MacBook Air M3</small><b>44 799 ₴</b><s>47 299 ₴</s></div><em>−5%</em></article>
+              <article class="moving-deal"><span>📺</span><div><small>Samsung OLED 55</small><b>52 499 ₴</b><s>57 999 ₴</s></div><em>−9%</em></article>
+              <article class="moving-deal"><span>⌚</span><div><small>Apple Watch Series 10</small><b>17 699 ₴</b><s>18 899 ₴</s></div><em>−6%</em></article>
+              <article class="moving-deal"><span>🎧</span><div><small>Sony WH-1000XM5</small><b>12 199 ₴</b><s>13 499 ₴</s></div><em>−10%</em></article>
+            </div>
+          </div>
         </div>
       </section>
 

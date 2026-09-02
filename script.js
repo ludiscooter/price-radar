@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', updateScrollState, { passive: true });
 
   const revealTargets = document.querySelectorAll(
-    '.section-heading, .card, .steps article, .categories span, .faq-list details, .stats-grid > div, .cta-panel',
+    '.section-heading, .card, .steps article, .categories span, .faq-list details, .stats-grid > div, .live-radar-head, .deal-marquee, .cta-panel',
   );
 
   if (reducedMotion || !('IntersectionObserver' in window)) {
@@ -72,6 +72,42 @@ document.addEventListener('DOMContentLoaded', () => {
       counter.textContent = '0';
       counterObserver.observe(counter);
     });
+  }
+
+  const liveDeals = [
+    { icon: '📱', product: 'iPhone 16 128GB', oldPrice: '39 199 ₴', newPrice: '36 899 ₴', change: '−6%' },
+    { icon: '🎮', product: 'PlayStation 5 Slim', oldPrice: '25 999 ₴', newPrice: '23 499 ₴', change: '−10%' },
+    { icon: '💻', product: 'MacBook Air M3', oldPrice: '47 299 ₴', newPrice: '44 799 ₴', change: '−5%' },
+    { icon: '📺', product: 'Samsung OLED 55', oldPrice: '57 999 ₴', newPrice: '52 499 ₴', change: '−9%' },
+    { icon: '⌚', product: 'Apple Watch Series 10', oldPrice: '18 899 ₴', newPrice: '17 699 ₴', change: '−6%' },
+  ];
+
+  const pushNotice = document.querySelector('.push');
+  const dealIcon = document.querySelector('#deal-icon');
+  const dealProduct = document.querySelector('#deal-product');
+  const dealOldPrice = document.querySelector('#deal-old-price');
+  const dealNewPrice = document.querySelector('#deal-new-price');
+  const dealChange = document.querySelector('#deal-change');
+  let activeDeal = 0;
+
+  const renderLiveDeal = () => {
+    const deal = liveDeals[activeDeal];
+    if (dealIcon) dealIcon.textContent = deal.icon;
+    if (dealProduct) dealProduct.textContent = deal.product;
+    if (dealOldPrice) dealOldPrice.textContent = deal.oldPrice;
+    if (dealNewPrice) dealNewPrice.textContent = deal.newPrice;
+    if (dealChange) dealChange.textContent = deal.change;
+  };
+
+  if (!reducedMotion && pushNotice && dealProduct) {
+    window.setInterval(() => {
+      pushNotice.classList.add('swapping');
+      window.setTimeout(() => {
+        activeDeal = (activeDeal + 1) % liveDeals.length;
+        renderLiveDeal();
+        pushNotice.classList.remove('swapping');
+      }, 240);
+    }, 4000);
   }
 
   const interactiveSurfaces = document.querySelectorAll('.card, .steps article, .categories span');
