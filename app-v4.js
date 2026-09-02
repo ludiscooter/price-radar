@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', updateScrollState, { passive: true });
 
   const revealTargets = document.querySelectorAll(
-    '.section-heading, .card, .steps article, .categories span, .faq-list details, .stats-grid > div, .live-radar-head, .deal-marquee, .cta-panel',
+    '.section-heading, .card, .steps article, .categories span, .categories a, .faq-list details, .stats-grid > div, .live-radar-head, .deal-marquee, .cta-panel',
   );
 
   if (reducedMotion || !('IntersectionObserver' in window)) {
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   startOfferAutoplay();
 
-  const interactiveSurfaces = document.querySelectorAll('.card, .steps article, .categories span');
+  const interactiveSurfaces = document.querySelectorAll('.card, .steps article, .categories span, .categories a');
   const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
 
   if (!reducedMotion && hasFinePointer) {

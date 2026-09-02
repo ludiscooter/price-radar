@@ -110,19 +110,23 @@ body {
   border-color: rgb(165 243 252 / 28%);
 }
 
+.hero-visual img,
+.hero-visual picture img,
 .hero-visual > img { animation: image-breathe 9s ease-in-out infinite; }
 .push { animation: push-float 4.8s ease-in-out infinite; }
 
 .card,
 .steps article,
-.categories span {
+.categories span,
+.categories a {
   position: relative;
   overflow: hidden;
 }
 
 .card::before,
 .steps article::before,
-.categories span::before {
+.categories span::before,
+.categories a::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -134,15 +138,18 @@ body {
 
 .card.pointer-active::before,
 .steps article.pointer-active::before,
-.categories span.pointer-active::before { opacity: 1; }
+.categories span.pointer-active::before,
+.categories a.pointer-active::before { opacity: 1; }
 
 .card,
-.categories span {
+.categories span,
+.categories a {
   transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover,
-.categories span:hover {
+.categories span:hover,
+.categories a:hover {
   transform: translateY(-5px);
   border-color: rgb(44 232 255 / 20%);
   box-shadow: 0 22px 60px rgb(0 18 56 / 25%), inset 0 1px rgb(255 255 255 / 5%);
@@ -610,13 +617,16 @@ body.is-ready .hero-visual { animation: hero-visual-in 1s 0.12s cubic-bezier(0.2
   .shop i { width: 32px; height: 32px; }
   .shop > b { min-width: 82px; font-size: 13px; }
   .card:hover,
-  .categories span:hover { transform: none; }
+  .categories span:hover,
+  .categories a:hover { transform: none; }
   .cta-panel::after { animation-duration: 26s; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; }
+  .hero-visual img,
+  .hero-visual picture img,
   .hero-visual > img,
   .push,
   .status i,
