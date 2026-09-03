@@ -1,472 +1,554 @@
 <!doctype html>
 <html lang="uk">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#030914" />
-    <title>Price Radar — контроль цін у Telegram</title>
-    <meta name="description" content="Порівнюйте ціни магазинів і отримуйте сповіщення про зниження та подорожчання товарів у Telegram." />
-    <meta property="og:title" content="Price Radar — контроль цін у Telegram" />
-    <meta property="og:description" content="Знайдіть товар, порівняйте ціни та увімкніть розумні сповіщення." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ludiscooter.github.io/price-radar/" />
-    <meta property="og:image" content="https://ludiscooter.github.io/price-radar/price-radar-welcome.png" />
-    <link rel="icon" href="price-radar-avatar.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles-v4.css" />
-    <link rel="stylesheet" href="motion-v4.css" />
-    <script>document.documentElement.classList.add('js')</script>
-    <script defer src="app-v4.js"></script>
-  </head>
-  <body>
-    <div class="scroll-progress" aria-hidden="true"></div>
-    <div class="cursor-glow" aria-hidden="true"></div>
-    <div class="ambient ambient-one" aria-hidden="true"></div>
-    <div class="ambient ambient-two" aria-hidden="true"></div>
-    <header class="header shell">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#030914" />
+  <title>Price Radar — контроль цін у Telegram</title>
+  <meta name="description"
+    content="Порівнюйте ціни магазинів і отримуйте сповіщення про зниження та подорожчання товарів у Telegram." />
+  <meta property="og:title" content="Price Radar — контроль цін у Telegram" />
+  <meta property="og:description" content="Знайдіть товар, порівняйте ціни та увімкніть розумні сповіщення." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ludiscooter.github.io/price-radar/" />
+  <meta property="og:image" content="https://ludiscooter.github.io/price-radar/price-radar-welcome.png" />
+  <link rel="icon" href="price-radar-avatar.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles-v4.css" />
+  <link rel="stylesheet" href="motion-v4.css" />
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="app-v4.js"></script>
+</head>
+
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="header-wrap" id="header-wrap">
+    <header class="header" id="main-header">
       <a class="brand" href="#top" aria-label="Price Radar — на початок">
-        <img src="price-radar-avatar.png" alt="" />
-        <span>Price Radar</span>
+        <div class="brand-avatar-wrap">
+          <img src="price-radar-avatar.png" alt="Price Radar Logo" />
+          <span class="brand-ping" aria-hidden="true"></span>
+        </div>
+        <span class="brand-name">Price Radar</span>
+        <span class="brand-status-tag">ONLINE</span>
       </a>
       <nav aria-label="Основна навігація">
-        <a href="#demo">Симулятор</a>
-        <a href="#features">Можливості</a>
-        <a href="#calculator">Калькулятор</a>
-        <a href="#how">Як це працює</a>
-        <a href="#categories">Категорії</a>
-        <a href="#faq">Питання</a>
+        <a href="#demo" class="nav-link">Симулятор</a>
+        <a href="#features" class="nav-link">Можливості</a>
+        <a href="#calculator" class="nav-link">Калькулятор</a>
+        <a href="#how" class="nav-link">Як це працює</a>
+        <a href="#categories" class="nav-link">Категорії</a>
+        <a href="#faq" class="nav-link">Питання</a>
       </nav>
-      <a class="header-cta" href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer">Відкрити бота</a>
+      <a class="header-cta" href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer">
+        <span>Відкрити бота</span>
+        <b aria-hidden="true">→</b>
+      </a>
     </header>
+  </div>
 
-    <main>
-      <section class="hero shell" id="top">
-        <div class="hero-copy">
-          <div class="status"><i></i> Розумний моніторинг цін у Telegram</div>
-          <h1>Ваша покупка — <span>у правильний момент</span></h1>
-          <p>Знаходьте товар за назвою, порівнюйте пропозиції магазинів і отримуйте сповіщення, щойно ціна зміниться.</p>
-          <div class="hero-actions">
-            <a class="primary-cta" href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer">Запустити Price Radar <b>→</b></a>
-            <small>Безкоштовно · без реєстрації</small>
-          </div>
-          <div class="micro-features">
-            <span>🔍 Пошук за назвою</span>
-            <span>📉 Зниження</span>
-            <span>📈 Подорожчання</span>
-          </div>
+  <main>
+    <section class="hero shell" id="top">
+      <div class="hero-copy">
+        <div class="status"><i></i> Розумний моніторинг цін у Telegram</div>
+        <h1>Ваша покупка — <span>у правильний момент</span></h1>
+        <p>Знаходьте товар за назвою, порівнюйте пропозиції магазинів і отримуйте сповіщення, щойно ціна зміниться.</p>
+        <div class="hero-actions">
+          <a class="primary-cta" href="https://t.me/hotline_price_monitor_bot" target="_blank"
+            rel="noreferrer">Запустити Price Radar <b>→</b></a>
+          <small>Безкоштовно · без реєстрації</small>
         </div>
-        <div class="hero-visual">
-          <img src="price-radar-welcome.png" alt="Price Radar знаходить вигідні пропозиції та відстежує зміну цін" />
-          <div class="push" aria-live="polite">
-            <span class="push-icon" id="deal-icon">📱</span>
-            <span class="deal-copy">
-              <small id="deal-product">iPhone 16 128GB</small>
-              <b><s id="deal-old-price">39 199 ₴</s><strong id="deal-new-price">36 899 ₴</strong></b>
-            </span>
-            <em class="deal-badge" id="deal-change">−6%</em>
-          </div>
+        <div class="micro-features">
+          <span>🔍 Пошук за назвою</span>
+          <span>📉 Зниження</span>
+          <span>📈 Подорожчання</span>
         </div>
-      </section>
+      </div>
+      <div class="hero-visual">
+        <img src="price-radar-welcome.png" alt="Price Radar знаходить вигідні пропозиції та відстежує зміну цін" />
+        <div class="push" aria-live="polite">
+          <span class="push-icon" id="deal-icon">📱</span>
+          <span class="deal-copy">
+            <small id="deal-product">iPhone 16 128GB</small>
+            <b><s id="deal-old-price">39 199 ₴</s><strong id="deal-new-price">36 899 ₴</strong></b>
+          </span>
+          <em class="deal-badge" id="deal-change">−6%</em>
+        </div>
+      </div>
+    </section>
 
-      <section class="stats">
-        <div class="shell stats-grid">
-          <div><b data-count="8">8</b><span>популярних категорій</span></div>
-          <div><b data-count="3">3</b><span>режими сповіщень</span></div>
-          <div><b data-count="1">1</b><span>кнопка для відстеження</span></div>
-        </div>
-      </section>
+    <section class="stats">
+      <div class="shell stats-grid">
+        <div><b data-count="8">8</b><span>популярних категорій</span></div>
+        <div><b data-count="3">3</b><span>режими сповіщень</span></div>
+        <div><b data-count="1">1</b><span>кнопка для відстеження</span></div>
+      </div>
+    </section>
 
-      <section class="live-radar" aria-labelledby="live-radar-title">
-        <div class="shell live-radar-head">
-          <span class="live-label"><i></i> LIVE</span>
-          <div>
-            <h2 id="live-radar-title">Ціни рухаються. Радар не зупиняється.</h2>
-            <p>Приклади змін, які Price Radar може помітити за вас.</p>
+    <section class="live-radar" aria-labelledby="live-radar-title">
+      <div class="shell live-radar-head">
+        <span class="live-label"><i></i> LIVE</span>
+        <div>
+          <h2 id="live-radar-title">Ціни рухаються. Радар не зупиняється.</h2>
+          <p>Приклади змін, які Price Radar може помітити за вас.</p>
+        </div>
+      </div>
+      <div class="deal-marquee">
+        <div class="deal-track">
+          <div class="deal-group">
+            <article class="moving-deal"><span>📱</span>
+              <div><small>iPhone 16 128GB</small><b>36 899 ₴</b><s>39 199 ₴</s></div><em>−6%</em>
+            </article>
+            <article class="moving-deal"><span>🎮</span>
+              <div><small>PlayStation 5 Slim</small><b>23 499 ₴</b><s>25 999 ₴</s></div><em>−10%</em>
+            </article>
+            <article class="moving-deal"><span>💻</span>
+              <div><small>MacBook Air M3</small><b>44 799 ₴</b><s>47 299 ₴</s></div><em>−5%</em>
+            </article>
+            <article class="moving-deal"><span>📺</span>
+              <div><small>Samsung OLED 55</small><b>52 499 ₴</b><s>57 999 ₴</s></div><em>−9%</em>
+            </article>
+            <article class="moving-deal"><span>⌚</span>
+              <div><small>Apple Watch Series 10</small><b>17 699 ₴</b><s>18 899 ₴</s></div><em>−6%</em>
+            </article>
+            <article class="moving-deal"><span>🎧</span>
+              <div><small>Sony WH-1000XM5</small><b>12 199 ₴</b><s>13 499 ₴</s></div><em>−10%</em>
+            </article>
+          </div>
+          <div class="deal-group" aria-hidden="true">
+            <article class="moving-deal"><span>📱</span>
+              <div><small>iPhone 16 128GB</small><b>36 899 ₴</b><s>39 199 ₴</s></div><em>−6%</em>
+            </article>
+            <article class="moving-deal"><span>🎮</span>
+              <div><small>PlayStation 5 Slim</small><b>23 499 ₴</b><s>25 999 ₴</s></div><em>−10%</em>
+            </article>
+            <article class="moving-deal"><span>💻</span>
+              <div><small>MacBook Air M3</small><b>44 799 ₴</b><s>47 299 ₴</s></div><em>−5%</em>
+            </article>
+            <article class="moving-deal"><span>📺</span>
+              <div><small>Samsung OLED 55</small><b>52 499 ₴</b><s>57 999 ₴</s></div><em>−9%</em>
+            </article>
+            <article class="moving-deal"><span>⌚</span>
+              <div><small>Apple Watch Series 10</small><b>17 699 ₴</b><s>18 899 ₴</s></div><em>−6%</em>
+            </article>
+            <article class="moving-deal"><span>🎧</span>
+              <div><small>Sony WH-1000XM5</small><b>12 199 ₴</b><s>13 499 ₴</s></div><em>−10%</em>
+            </article>
           </div>
         </div>
-        <div class="deal-marquee">
-          <div class="deal-track">
-            <div class="deal-group">
-              <article class="moving-deal"><span>📱</span><div><small>iPhone 16 128GB</small><b>36 899 ₴</b><s>39 199 ₴</s></div><em>−6%</em></article>
-              <article class="moving-deal"><span>🎮</span><div><small>PlayStation 5 Slim</small><b>23 499 ₴</b><s>25 999 ₴</s></div><em>−10%</em></article>
-              <article class="moving-deal"><span>💻</span><div><small>MacBook Air M3</small><b>44 799 ₴</b><s>47 299 ₴</s></div><em>−5%</em></article>
-              <article class="moving-deal"><span>📺</span><div><small>Samsung OLED 55</small><b>52 499 ₴</b><s>57 999 ₴</s></div><em>−9%</em></article>
-              <article class="moving-deal"><span>⌚</span><div><small>Apple Watch Series 10</small><b>17 699 ₴</b><s>18 899 ₴</s></div><em>−6%</em></article>
-              <article class="moving-deal"><span>🎧</span><div><small>Sony WH-1000XM5</small><b>12 199 ₴</b><s>13 499 ₴</s></div><em>−10%</em></article>
+      </div>
+    </section>
+
+    <!-- NEW: Interactive Radar Scanner Simulator -->
+    <section class="section shell radar-demo-section" id="demo">
+      <div class="section-heading centered">
+        <span class="eyebrow">Інтерактивний тест</span>
+        <h2>Живий симулятор пошуку цін</h2>
+        <p>Введіть назву гаджета або оберіть готовий приклад — подивіться, як радар за секунду сканує магазини й
+          аналізує графік коливання цін.</p>
+      </div>
+
+      <div class="radar-search-box">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="radar-search-input" placeholder="Спробуйте знайти: AirPods Pro 2, RTX 4070, PS5..."
+            aria-label="Пошук товару для симулятора" />
+          <button type="button" id="radar-search-clear" aria-label="Очистити" class="search-clear-btn"
+            style="display:none;">✕</button>
+        </div>
+        <div class="search-chips" id="search-chips">
+          <span class="chips-label">Швидкий вибір:</span>
+          <button type="button" class="chip active" data-product="airpods">🎧 AirPods Pro 2</button>
+          <button type="button" class="chip" data-product="ps5">🎮 PlayStation 5 Slim</button>
+          <button type="button" class="chip" data-product="rtx4070">⚡ RTX 4070 Super</button>
+          <button type="button" class="chip" data-product="macbook">💻 MacBook Air M3</button>
+          <button type="button" class="chip" data-product="dyson">💨 Dyson Airwrap</button>
+        </div>
+      </div>
+
+      <div class="radar-screen" id="radar-screen">
+        <!-- Scanning state -->
+        <div class="radar-scanning" id="radar-scanning" aria-hidden="true" style="display:none;">
+          <div class="radar-sweep-circle">
+            <div class="radar-beam"></div>
+            <div class="radar-blip blip-1"></div>
+            <div class="radar-blip blip-2"></div>
+            <div class="radar-blip blip-3"></div>
+          </div>
+          <p id="radar-scan-status">Скануємо Rozetka, Telemart, Hotline, Comfy...</p>
+        </div>
+
+        <!-- Result card -->
+        <div class="radar-result" id="radar-result">
+          <div class="result-top">
+            <div class="result-item-meta">
+              <span class="result-icon" id="res-icon">🎧</span>
+              <div>
+                <div class="result-badge-row">
+                  <span class="res-category" id="res-category">Аудіо & Навушники</span>
+                  <span class="res-drop-badge" id="res-drop-badge">−14% знижка</span>
+                </div>
+                <h3 id="res-title">Apple AirPods Pro 2 (USB-C)</h3>
+              </div>
             </div>
-            <div class="deal-group" aria-hidden="true">
-              <article class="moving-deal"><span>📱</span><div><small>iPhone 16 128GB</small><b>36 899 ₴</b><s>39 199 ₴</s></div><em>−6%</em></article>
-              <article class="moving-deal"><span>🎮</span><div><small>PlayStation 5 Slim</small><b>23 499 ₴</b><s>25 999 ₴</s></div><em>−10%</em></article>
-              <article class="moving-deal"><span>💻</span><div><small>MacBook Air M3</small><b>44 799 ₴</b><s>47 299 ₴</s></div><em>−5%</em></article>
-              <article class="moving-deal"><span>📺</span><div><small>Samsung OLED 55</small><b>52 499 ₴</b><s>57 999 ₴</s></div><em>−9%</em></article>
-              <article class="moving-deal"><span>⌚</span><div><small>Apple Watch Series 10</small><b>17 699 ₴</b><s>18 899 ₴</s></div><em>−6%</em></article>
-              <article class="moving-deal"><span>🎧</span><div><small>Sony WH-1000XM5</small><b>12 199 ₴</b><s>13 499 ₴</s></div><em>−10%</em></article>
+            <div class="result-price-block">
+              <small>Найкраща ціна зараз</small>
+              <div class="price-val">
+                <span id="res-price">9 499 ₴</span>
+                <s id="res-old-price">10 999 ₴</s>
+              </div>
+              <span class="price-saving" id="res-saving">Економія 1 500 ₴</span>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- NEW: Interactive Radar Scanner Simulator -->
-      <section class="section shell radar-demo-section" id="demo">
-        <div class="section-heading centered">
-          <span class="eyebrow">Інтерактивний тест</span>
-          <h2>Живий симулятор пошуку цін</h2>
-          <p>Введіть назву гаджета або оберіть готовий приклад — подивіться, як радар за секунду сканує магазини й аналізує графік коливання цін.</p>
-        </div>
-
-        <div class="radar-search-box">
-          <div class="search-input-wrap">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="radar-search-input" placeholder="Спробуйте знайти: AirPods Pro 2, RTX 4070, PS5..." aria-label="Пошук товару для симулятора" />
-            <button type="button" id="radar-search-clear" aria-label="Очистити" class="search-clear-btn" style="display:none;">✕</button>
-          </div>
-          <div class="search-chips" id="search-chips">
-            <span class="chips-label">Швидкий вибір:</span>
-            <button type="button" class="chip active" data-product="airpods">🎧 AirPods Pro 2</button>
-            <button type="button" class="chip" data-product="ps5">🎮 PlayStation 5 Slim</button>
-            <button type="button" class="chip" data-product="rtx4070">⚡ RTX 4070 Super</button>
-            <button type="button" class="chip" data-product="macbook">💻 MacBook Air M3</button>
-            <button type="button" class="chip" data-product="dyson">💨 Dyson Airwrap</button>
-          </div>
-        </div>
-
-        <div class="radar-screen" id="radar-screen">
-          <!-- Scanning state -->
-          <div class="radar-scanning" id="radar-scanning" aria-hidden="true" style="display:none;">
-            <div class="radar-sweep-circle">
-              <div class="radar-beam"></div>
-              <div class="radar-blip blip-1"></div>
-              <div class="radar-blip blip-2"></div>
-              <div class="radar-blip blip-3"></div>
-            </div>
-            <p id="radar-scan-status">Скануємо Rozetka, Telemart, Hotline, Comfy...</p>
-          </div>
-
-          <!-- Result card -->
-          <div class="radar-result" id="radar-result">
-            <div class="result-top">
-              <div class="result-item-meta">
-                <span class="result-icon" id="res-icon">🎧</span>
+          <div class="result-grid">
+            <!-- Left: SVG Price History Chart -->
+            <div class="result-chart-card">
+              <div class="chart-header">
                 <div>
-                  <div class="result-badge-row">
-                    <span class="res-category" id="res-category">Аудіо & Навушники</span>
-                    <span class="res-drop-badge" id="res-drop-badge">−14% знижка</span>
-                  </div>
-                  <h3 id="res-title">Apple AirPods Pro 2 (USB-C)</h3>
+                  <h4>Динаміка цін за останні 30 днів</h4>
+                  <span class="chart-sub">Оновлення 2 рази на добу · перевірені продавці</span>
+                </div>
+                <div class="chart-stats-pill">
+                  <span>Мін: <b id="chart-min-price">9 499 ₴</b></span>
+                  <span>Макс: <b id="chart-max-price">11 200 ₴</b></span>
                 </div>
               </div>
-              <div class="result-price-block">
-                <small>Найкраща ціна зараз</small>
-                <div class="price-val">
-                  <span id="res-price">9 499 ₴</span>
-                  <s id="res-old-price">10 999 ₴</s>
-                </div>
-                <span class="price-saving" id="res-saving">Економія 1 500 ₴</span>
+
+              <div class="chart-svg-wrap" id="chart-container">
+                <!-- SVG dynamically rendered by JS -->
+              </div>
+
+              <div class="chart-timeline">
+                <span>30 днів тому</span>
+                <span>15 днів тому</span>
+                <span class="today-marker">Сьогодні (вигідний момент!)</span>
               </div>
             </div>
 
-            <div class="result-grid">
-              <!-- Left: SVG Price History Chart -->
-              <div class="result-chart-card">
-                <div class="chart-header">
-                  <div>
-                    <h4>Динаміка цін за останні 30 днів</h4>
-                    <span class="chart-sub">Оновлення 2 рази на добу · перевірені продавці</span>
-                  </div>
-                  <div class="chart-stats-pill">
-                    <span>Мін: <b id="chart-min-price">9 499 ₴</b></span>
-                    <span>Макс: <b id="chart-max-price">11 200 ₴</b></span>
-                  </div>
-                </div>
-
-                <div class="chart-svg-wrap" id="chart-container">
-                  <!-- SVG dynamically rendered by JS -->
-                </div>
-
-                <div class="chart-timeline">
-                  <span>30 днів тому</span>
-                  <span>15 днів тому</span>
-                  <span class="today-marker">Сьогодні (вигідний момент!)</span>
-                </div>
+            <!-- Right: Stores Comparison -->
+            <div class="result-stores-card">
+              <div class="stores-header">
+                <h4>Пропозиції перевірених магазинів</h4>
+                <span class="stores-count" id="res-stores-count">18 магазинів</span>
               </div>
-
-              <!-- Right: Stores Comparison -->
-              <div class="result-stores-card">
-                <div class="stores-header">
-                  <h4>Пропозиції перевірених магазинів</h4>
-                  <span class="stores-count" id="res-stores-count">18 магазинів</span>
-                </div>
-                <div class="stores-list" id="res-stores-list">
-                  <!-- Populated by JS -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Bot CTA banner inside result -->
-            <div class="result-bot-cta">
-              <div class="bot-cta-info">
-                <span>🔔</span>
-                <p>Ціна може опуститися ще нижче. Увімкніть радар у Telegram для миттєвого сповіщення про новий спад ціни.</p>
-              </div>
-              <a href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer" class="primary-cta small" id="res-tg-link">
-                Стежити за цим товаром <b>→</b>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section shell" id="features">
-        <div class="section-heading">
-          <span class="eyebrow">Можливості</span>
-          <h2>Не просто пошук. Особистий радар вигідних покупок.</h2>
-          <p>Price Radar бере рутину на себе: порівнює, запам’ятовує та повідомляє саме тоді, коли це важливо.</p>
-        </div>
-        <div class="bento">
-          <article class="card offers">
-            <span class="card-icon cyan">🛍️</span>
-            <h3>Ціни магазинів — в одному повідомленні</h3>
-            <p>Гортайте пропозиції, бачте рейтинг продавця й переходьте одразу до потрібного товару в магазині.</p>
-            <div class="offer-carousel" aria-label="Приклади порівняння цін" aria-roledescription="карусель">
-              <div class="offer-product">
-                <span id="offer-product-icon">📱</span>
-                <div><small>Зараз порівнюємо</small><b id="offer-product-name">iPhone 16 128GB</b></div>
-                <em id="offer-position">1 / 3</em>
-              </div>
-              <div class="offer-viewport">
-                <div class="offer-list" id="offer-list" aria-live="polite">
-                  <div class="offer-head"><span><small>Найкраща ціна</small><b id="offer-best-price">36 899 ₴</b></span><em id="offer-count">12 пропозицій</em></div>
-                  <div class="shop"><i>🛒</i><span id="shop-name-1">Smart Store</span><small id="shop-rating-1">★ 4.9</small><b id="shop-price-1">36 899 ₴</b></div>
-                  <div class="shop"><i>🛒</i><span id="shop-name-2">Tech Market</span><small id="shop-rating-2">★ 4.8</small><b id="shop-price-2">37 240 ₴</b></div>
-                  <div class="shop"><i>🛒</i><span id="shop-name-3">Digital Shop</span><small id="shop-rating-3">★ 4.7</small><b id="shop-price-3">37 699 ₴</b></div>
-                </div>
-              </div>
-              <div class="offer-controls">
-                <button id="offer-prev" type="button" aria-label="Попередній товар">←</button>
-                <div class="offer-dots" role="tablist" aria-label="Оберіть товар">
-                  <button class="active" type="button" role="tab" aria-selected="true" aria-label="iPhone 16 128GB"></button>
-                  <button type="button" role="tab" aria-selected="false" aria-label="PlayStation 5 Slim"></button>
-                  <button type="button" role="tab" aria-selected="false" aria-label="MacBook Air M3"></button>
-                </div>
-                <button id="offer-next" type="button" aria-label="Наступний товар">→</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Interactive Telegram Bot Mockup Card -->
-          <article class="card changes tg-mockup-card">
-            <div class="card-header-flex">
-              <span class="card-icon green">🔔</span>
-              <span class="live-indicator-pill"><i></i> Тест у реальному часі</span>
-            </div>
-            <h3>Миттєвий бот у Telegram</h3>
-            <p>Натискайте інлайн-кнопки нижче — подивіться, як бот відповідає та змінює статус моніторингу.</p>
-            <div class="tg-chat-preview" id="tg-chat-preview">
-              <div class="tg-msg-bubble bot">
-                <img src="price-radar-avatar.png" alt="" class="tg-msg-avatar" />
-                <div class="tg-msg-content">
-                  <div class="tg-msg-sender">Price Radar <span class="tg-bot-badge">bot</span></div>
-                  <div class="tg-msg-text">
-                    📉 <b>Зниження ціни на iPhone 16!</b><br />
-                    Найкраща ціна: <strong class="highlight-green">36 899 ₴</strong> <s>39 199 ₴</s> (−6%)<br />
-                    <small>Магазин: Smart Store (★ 4.9)</small>
-                  </div>
-                  <div class="tg-inline-keyboard" id="tg-inline-kb">
-                    <button type="button" class="tg-btn" data-action="track">🔔 Стежити</button>
-                    <button type="button" class="tg-btn" data-action="target">🎯 Ціль −10%</button>
-                    <button type="button" class="tg-btn" data-action="stats">📊 Статистика</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tg-reply-toast" id="tg-reply-toast" style="display:none;">
-                <span id="tg-reply-icon">✅</span>
-                <span id="tg-reply-text">Режим сповіщень активовано!</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card small-card">
-            <span class="card-icon violet">📊</span>
-            <h3>Історія без здогадок</h3>
-            <p>Стартова, мінімальна, максимальна та поточна ціна завжди під рукою.</p>
-            <div class="bars" aria-hidden="true"><i style="height:62%"></i><i style="height:72%"></i><i style="height:48%"></i><i style="height:57%"></i><i style="height:39%"></i><i style="height:44%"></i><i style="height:29%"></i><i style="height:34%"></i></div>
-          </article>
-          <article class="card small-card">
-            <span class="card-icon amber">🎯</span>
-            <h3>Ваша бажана ціна</h3>
-            <p>Оберіть ціль −5%, −10% або −15% і дочекайтеся потрібного моменту.</p>
-            <div class="target-label"><span>Поточна</span><span>Ціль −10%</span></div><div class="progress"><i></i></div>
-          </article>
-          <article class="card small-card">
-            <span class="card-icon blue">👤</span>
-            <h3>Контроль у профілі</h3>
-            <p>Переглядайте всі відстеження, змінюйте режими або ставте сповіщення на паузу.</p>
-            <div class="tracked"><span>✓ iPhone 16 128GB</span><span>✓ PlayStation 5 Slim</span></div>
-          </article>
-        </div>
-      </section>
-
-      <!-- NEW: Savings Calculator Section -->
-      <section class="section shell calculator-section" id="calculator">
-        <div class="section-heading centered">
-          <span class="eyebrow">Ваша вигода в цифрах</span>
-          <h2>Калькулятор розумної економії</h2>
-          <p>Дізнайтеся, скільки грошей залишається у вашому бюджеті завдяки вчасному виявленню знижок і акцій.</p>
-        </div>
-
-        <div class="calc-card">
-          <div class="calc-inputs">
-            <div class="calc-input-group">
-              <div class="calc-label-row">
-                <label for="budget-range">Планований бюджет на покупки на рік:</label>
-                <span class="calc-badge-val" id="budget-display">50 000 ₴</span>
-              </div>
-              <input type="range" id="budget-range" min="10000" max="200000" step="5000" value="50000" class="gradient-slider" />
-              <div class="slider-marks">
-                <span>10 000 ₴</span>
-                <span>100 000 ₴</span>
-                <span>200 000 ₴</span>
-              </div>
-            </div>
-
-            <div class="calc-input-group">
-              <span class="calc-group-title">Як часто ви купуєте техніку чи гаджети?</span>
-              <div class="calc-freq-chips" id="calc-freq-chips">
-                <button type="button" class="freq-btn" data-factor="0.85">1–2 рази на рік</button>
-                <button type="button" class="freq-btn active" data-factor="1">Кілька разів (3–5)</button>
-                <button type="button" class="freq-btn" data-factor="1.2">Постійно (активний покупець)</button>
-              </div>
-            </div>
-
-            <div class="calc-input-group">
-              <span class="calc-group-title">Очікуваний рівень знижки:</span>
-              <div class="calc-discount-chips" id="calc-discount-chips">
-                <button type="button" class="disc-btn" data-percent="0.08">Помірна (−8%)</button>
-                <button type="button" class="disc-btn active" data-percent="0.15">Середня (−15%)</button>
-                <button type="button" class="disc-btn" data-percent="0.22">Максимальна (−22%)</button>
+              <div class="stores-list" id="res-stores-list">
+                <!-- Populated by JS -->
               </div>
             </div>
           </div>
 
-          <div class="calc-results">
-            <div class="calc-result-glow"></div>
-            <div class="calc-results-content">
-              <span class="calc-res-label">Орієнтовна економія на рік:</span>
-              <div class="calc-res-amount">
-                <span id="savings-amount">7 500 ₴</span>
-              </div>
-              <p class="calc-res-caption" id="savings-caption">
-                Цих коштів достатньо, наприклад, на <b>нові бездротові навушники</b> або <b>рік підписок на всі сервіси</b>.
+          <!-- Bot CTA banner inside result -->
+          <div class="result-bot-cta">
+            <div class="bot-cta-info">
+              <span>🔔</span>
+              <p>Ціна може опуститися ще нижче. Увімкніть радар у Telegram для миттєвого сповіщення про новий спад ціни.
               </p>
+            </div>
+            <a href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer" class="primary-cta small"
+              id="res-tg-link">
+              Стежити за цим товаром <b>→</b>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <div class="calc-perks">
-                <div class="perk-item">
-                  <span>📉</span>
-                  <div>
-                    <b id="perk-avg-discount">−1 875 ₴</b>
-                    <small>Середня економія на одній покупці</small>
-                  </div>
+    <section class="section shell" id="features">
+      <div class="section-heading">
+        <span class="eyebrow">Можливості</span>
+        <h2>Не просто пошук. Особистий радар вигідних покупок.</h2>
+        <p>Price Radar бере рутину на себе: порівнює, запам’ятовує та повідомляє саме тоді, коли це важливо.</p>
+      </div>
+      <div class="bento">
+        <article class="card offers">
+          <span class="card-icon cyan">🛍️</span>
+          <h3>Ціни магазинів — в одному повідомленні</h3>
+          <p>Гортайте пропозиції, бачте рейтинг продавця й переходьте одразу до потрібного товару в магазині.</p>
+          <div class="offer-carousel" aria-label="Приклади порівняння цін" aria-roledescription="карусель">
+            <div class="offer-product">
+              <span id="offer-product-icon">📱</span>
+              <div><small>Зараз порівнюємо</small><b id="offer-product-name">iPhone 16 128GB</b></div>
+              <em id="offer-position">1 / 3</em>
+            </div>
+            <div class="offer-viewport">
+              <div class="offer-list" id="offer-list" aria-live="polite">
+                <div class="offer-head"><span><small>Найкраща ціна</small><b id="offer-best-price">36 899
+                      ₴</b></span><em id="offer-count">12 пропозицій</em></div>
+                <div class="shop"><i>🛒</i><span id="shop-name-1">Smart Store</span><small id="shop-rating-1">★
+                    4.9</small><b id="shop-price-1">36 899 ₴</b></div>
+                <div class="shop"><i>🛒</i><span id="shop-name-2">Tech Market</span><small id="shop-rating-2">★
+                    4.8</small><b id="shop-price-2">37 240 ₴</b></div>
+                <div class="shop"><i>🛒</i><span id="shop-name-3">Digital Shop</span><small id="shop-rating-3">★
+                    4.7</small><b id="shop-price-3">37 699 ₴</b></div>
+              </div>
+            </div>
+            <div class="offer-controls">
+              <button id="offer-prev" type="button" aria-label="Попередній товар">←</button>
+              <div class="offer-dots" role="tablist" aria-label="Оберіть товар">
+                <button class="active" type="button" role="tab" aria-selected="true"
+                  aria-label="iPhone 16 128GB"></button>
+                <button type="button" role="tab" aria-selected="false" aria-label="PlayStation 5 Slim"></button>
+                <button type="button" role="tab" aria-selected="false" aria-label="MacBook Air M3"></button>
+              </div>
+              <button id="offer-next" type="button" aria-label="Наступний товар">→</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Interactive Telegram Bot Mockup Card -->
+        <article class="card changes tg-mockup-card">
+          <div class="card-header-flex">
+            <span class="card-icon green">🔔</span>
+            <span class="live-indicator-pill"><i></i> Тест у реальному часі</span>
+          </div>
+          <h3>Миттєвий бот у Telegram</h3>
+          <p>Натискайте інлайн-кнопки нижче — подивіться, як бот відповідає та змінює статус моніторингу.</p>
+          <div class="tg-chat-preview" id="tg-chat-preview">
+            <div class="tg-msg-bubble bot">
+              <img src="price-radar-avatar.png" alt="" class="tg-msg-avatar" />
+              <div class="tg-msg-content">
+                <div class="tg-msg-sender">Price Radar <span class="tg-bot-badge">bot</span></div>
+                <div class="tg-msg-text">
+                  📉 <b>Зниження ціни на iPhone 16!</b><br />
+                  Найкраща ціна: <strong class="highlight-green">36 899 ₴</strong> <s>39 199 ₴</s> (−6%)<br />
+                  <small>Магазин: Smart Store (★ 4.9)</small>
                 </div>
-                <div class="perk-item">
-                  <span>⚡</span>
-                  <div>
-                    <b>0 годин</b>
-                    <small>Витраченого часу на ручний пошук цін</small>
-                  </div>
+                <div class="tg-inline-keyboard" id="tg-inline-kb">
+                  <button type="button" class="tg-btn" data-action="track">🔔 Стежити</button>
+                  <button type="button" class="tg-btn" data-action="target">🎯 Ціль −10%</button>
+                  <button type="button" class="tg-btn" data-action="stats">📊 Статистика</button>
                 </div>
               </div>
+            </div>
+            <div class="tg-reply-toast" id="tg-reply-toast" style="display:none;">
+              <span id="tg-reply-icon">✅</span>
+              <span id="tg-reply-text">Режим сповіщень активовано!</span>
+            </div>
+          </div>
+        </article>
 
-              <a class="primary-cta calc-cta" href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer">
-                Заощаджувати з ботом <b>→</b>
-              </a>
+        <article class="card small-card">
+          <span class="card-icon violet">📊</span>
+          <h3>Історія без здогадок</h3>
+          <p>Стартова, мінімальна, максимальна та поточна ціна завжди під рукою.</p>
+          <div class="bars" aria-hidden="true"><i style="height:62%"></i><i style="height:72%"></i><i
+              style="height:48%"></i><i style="height:57%"></i><i style="height:39%"></i><i style="height:44%"></i><i
+              style="height:29%"></i><i style="height:34%"></i></div>
+        </article>
+        <article class="card small-card">
+          <span class="card-icon amber">🎯</span>
+          <h3>Ваша бажана ціна</h3>
+          <p>Оберіть ціль −5%, −10% або −15% і дочекайтеся потрібного моменту.</p>
+          <div class="target-label"><span>Поточна</span><span>Ціль −10%</span></div>
+          <div class="progress"><i></i></div>
+        </article>
+        <article class="card small-card">
+          <span class="card-icon blue">👤</span>
+          <h3>Контроль у профілі</h3>
+          <p>Переглядайте всі відстеження, змінюйте режими або ставте сповіщення на паузу.</p>
+          <div class="tracked"><span>✓ iPhone 16 128GB</span><span>✓ PlayStation 5 Slim</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- NEW: Savings Calculator Section -->
+    <section class="section shell calculator-section" id="calculator">
+      <div class="section-heading centered">
+        <span class="eyebrow">Ваша вигода в цифрах</span>
+        <h2>Калькулятор розумної економії</h2>
+        <p>Дізнайтеся, скільки грошей залишається у вашому бюджеті завдяки вчасному виявленню знижок і акцій.</p>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-inputs">
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <label for="budget-range">Планований бюджет на покупки на рік:</label>
+              <span class="calc-badge-val" id="budget-display">50 000 ₴</span>
+            </div>
+            <input type="range" id="budget-range" min="10000" max="200000" step="5000" value="50000"
+              class="gradient-slider" />
+            <div class="slider-marks">
+              <span>10 000 ₴</span>
+              <span>100 000 ₴</span>
+              <span>200 000 ₴</span>
+            </div>
+          </div>
+
+          <div class="calc-input-group">
+            <span class="calc-group-title">Як часто ви купуєте техніку чи гаджети?</span>
+            <div class="calc-freq-chips" id="calc-freq-chips">
+              <button type="button" class="freq-btn" data-factor="0.85">1–2 рази на рік</button>
+              <button type="button" class="freq-btn active" data-factor="1">Кілька разів (3–5)</button>
+              <button type="button" class="freq-btn" data-factor="1.2">Постійно (активний покупець)</button>
+            </div>
+          </div>
+
+          <div class="calc-input-group">
+            <span class="calc-group-title">Очікуваний рівень знижки:</span>
+            <div class="calc-discount-chips" id="calc-discount-chips">
+              <button type="button" class="disc-btn" data-percent="0.08">Помірна (−8%)</button>
+              <button type="button" class="disc-btn active" data-percent="0.15">Середня (−15%)</button>
+              <button type="button" class="disc-btn" data-percent="0.22">Максимальна (−22%)</button>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="how" id="how">
-        <div class="section shell">
-          <div class="section-heading">
-            <span class="eyebrow">Як це працює</span>
-            <h2>Три прості кроки до вигідної покупки</h2>
-          </div>
-          <div class="steps">
-            <article><span><b>01</b><i>🔍</i></span><h3>Знайдіть товар</h3><p>Оберіть категорію та напишіть звичайну назву або модель.</p></article>
-            <article><span><b>02</b><i>📊</i></span><h3>Порівняйте ціни</h3><p>Перегляньте пропозиції магазинів і відкрийте найкращу.</p></article>
-            <article><span><b>03</b><i>🔔</i></span><h3>Увімкніть контроль</h3><p>Одне натискання — і бот повідомить про наступну зміну.</p></article>
-          </div>
-        </div>
-      </section>
+        <div class="calc-results">
+          <div class="calc-result-glow"></div>
+          <div class="calc-results-content">
+            <span class="calc-res-label">Орієнтовна економія на рік:</span>
+            <div class="calc-res-amount">
+              <span id="savings-amount">7 500 ₴</span>
+            </div>
+            <p class="calc-res-caption" id="savings-caption">
+              Цих коштів достатньо, наприклад, на <b>нові бездротові навушники</b> або <b>рік підписок на всі
+                сервіси</b>.
+            </p>
 
-      <!-- UPDATED: Interactive Categories with Dynamic Deals Showcase -->
-      <section class="section shell categories-section" id="categories">
-        <div class="section-heading compact">
-          <span class="eyebrow">Зручний старт</span>
-          <h2>Спочатку категорія. Потім точний результат.</h2>
-          <p>Оберіть категорію, щоб переглянути реальні приклади відстежуваних товарів та актуальні знижки.</p>
-          <a class="primary-cta small" href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer">Спробувати в Telegram <b>→</b></a>
-        </div>
-        <div class="categories-wrap">
-          <div class="categories" id="categories-list">
-            <button type="button" class="cat-pill active" data-cat="phones"><i>📱</i>Смартфони</button>
-            <button type="button" class="cat-pill" data-cat="laptops"><i>💻</i>Ноутбуки</button>
-            <button type="button" class="cat-pill" data-cat="games"><i>🎮</i>Ігри й консолі</button>
-            <button type="button" class="cat-pill" data-cat="audio"><i>🎧</i>Аудіо</button>
-            <button type="button" class="cat-pill" data-cat="home"><i>🏠</i>Техніка для дому</button>
-            <button type="button" class="cat-pill" data-cat="tvs"><i>📺</i>Телевізори</button>
-            <button type="button" class="cat-pill" data-cat="watches"><i>⌚</i>Смартгодинники</button>
-            <button type="button" class="cat-pill" data-cat="photo"><i>📷</i>Фото й відео</button>
-          </div>
-          <div class="cat-showcase-panel" id="cat-showcase-panel">
-            <!-- Populated dynamically by JS -->
+            <div class="calc-perks">
+              <div class="perk-item">
+                <span>📉</span>
+                <div>
+                  <b id="perk-avg-discount">−1 875 ₴</b>
+                  <small>Середня економія на одній покупці</small>
+                </div>
+              </div>
+              <div class="perk-item">
+                <span>⚡</span>
+                <div>
+                  <b>0 годин</b>
+                  <small>Витраченого часу на ручний пошук цін</small>
+                </div>
+              </div>
+            </div>
+
+            <a class="primary-cta calc-cta" href="https://t.me/hotline_price_monitor_bot" target="_blank"
+              rel="noreferrer">
+              Заощаджувати з ботом <b>→</b>
+            </a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section shell faq" id="faq">
-        <div class="section-heading compact">
-          <span class="eyebrow">Поширені питання</span>
-          <h2>Усе важливе перед стартом</h2>
-          <p>Не знайшли відповідь? Напишіть нам безпосередньо в Telegram.</p>
+    <section class="how" id="how">
+      <div class="section shell">
+        <div class="section-heading">
+          <span class="eyebrow">Як це працює</span>
+          <h2>Три прості кроки до вигідної покупки</h2>
         </div>
-        <div class="faq-list">
-          <details><summary>Чи потрібно реєструватися?<span>⌄</span></summary><p>Ні. Відкрийте Price Radar у Telegram, натисніть «Старт» і одразу починайте пошук.</p></details>
-          <details><summary>Про які зміни ціни повідомляє бот?<span>⌄</span></summary><p>Ви самі обираєте режим: усі зміни, лише зниження або досягнення бажаної ціни на 5, 10 чи 15% нижче.</p></details>
-          <details><summary>Куди веде кнопка купівлі?<span>⌄</span></summary><p>На сторінку вибраного товару безпосередньо в магазині. Перед оплатою завжди перевіряйте остаточну ціну й умови продавця.</p></details>
-          <details><summary>Чи можна тимчасово вимкнути сповіщення?<span>⌄</span></summary><p>Так. У профілі можна поставити всі сповіщення на паузу, не видаляючи товари з відстеження.</p></details>
+        <div class="steps">
+          <article><span><b>01</b><i>🔍</i></span>
+            <h3>Знайдіть товар</h3>
+            <p>Оберіть категорію та напишіть звичайну назву або модель.</p>
+          </article>
+          <article><span><b>02</b><i>📊</i></span>
+            <h3>Порівняйте ціни</h3>
+            <p>Перегляньте пропозиції магазинів і відкрийте найкращу.</p>
+          </article>
+          <article><span><b>03</b><i>🔔</i></span>
+            <h3>Увімкніть контроль</h3>
+            <p>Одне натискання — і бот повідомить про наступну зміну.</p>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="shell cta-wrap">
-        <div class="cta-panel">
-          <span class="bot-icon">🤖</span>
-          <h2>Ціни під контролем.<br />Покупки — без поспіху.</h2>
-          <p>Відкрийте Price Radar у Telegram і додайте перший товар за хвилину.</p>
-          <a class="primary-cta" href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer">Запустити Price Radar <b>→</b></a>
+    <!-- UPDATED: Interactive Categories with Dynamic Deals Showcase -->
+    <section class="section shell categories-section" id="categories">
+      <div class="section-heading compact">
+        <span class="eyebrow">Зручний старт</span>
+        <h2>Спочатку категорія. Потім точний результат.</h2>
+        <p>Оберіть категорію, щоб переглянути реальні приклади відстежуваних товарів та актуальні знижки.</p>
+        <a class="primary-cta small" href="https://t.me/hotline_price_monitor_bot" target="_blank"
+          rel="noreferrer">Спробувати в Telegram <b>→</b></a>
+      </div>
+      <div class="categories-wrap">
+        <div class="categories" id="categories-list">
+          <button type="button" class="cat-pill active" data-cat="phones"><i>📱</i>Смартфони</button>
+          <button type="button" class="cat-pill" data-cat="laptops"><i>💻</i>Ноутбуки</button>
+          <button type="button" class="cat-pill" data-cat="games"><i>🎮</i>Ігри й консолі</button>
+          <button type="button" class="cat-pill" data-cat="audio"><i>🎧</i>Аудіо</button>
+          <button type="button" class="cat-pill" data-cat="home"><i>🏠</i>Техніка для дому</button>
+          <button type="button" class="cat-pill" data-cat="tvs"><i>📺</i>Телевізори</button>
+          <button type="button" class="cat-pill" data-cat="watches"><i>⌚</i>Смартгодинники</button>
+          <button type="button" class="cat-pill" data-cat="photo"><i>📷</i>Фото й відео</button>
         </div>
-      </section>
-    </main>
+        <div class="cat-showcase-panel" id="cat-showcase-panel">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+    </section>
 
-    <footer class="shell footer">
-      <span class="brand-mini"><img src="price-radar-avatar.png" alt="" /> © 2026 Price Radar</span>
-      <p>Ціни й умови магазинів можуть змінюватися. Перевіряйте інформацію на сайті продавця перед покупкою.</p>
-    </footer>
+    <section class="section shell faq" id="faq">
+      <div class="section-heading compact">
+        <span class="eyebrow">Поширені питання</span>
+        <h2>Усе важливе перед стартом</h2>
+        <p>Не знайшли відповідь? Напишіть нам безпосередньо в Telegram.</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Чи потрібно реєструватися?<span>⌄</span></summary>
+          <p>Ні. Відкрийте Price Radar у Telegram, натисніть «Старт» і одразу починайте пошук.</p>
+        </details>
+        <details>
+          <summary>Про які зміни ціни повідомляє бот?<span>⌄</span></summary>
+          <p>Ви самі обираєте режим: усі зміни, лише зниження або досягнення бажаної ціни на 5, 10 чи 15% нижче.</p>
+        </details>
+        <details>
+          <summary>Куди веде кнопка купівлі?<span>⌄</span></summary>
+          <p>На сторінку вибраного товару безпосередньо в магазині. Перед оплатою завжди перевіряйте остаточну ціну й
+            умови продавця.</p>
+        </details>
+        <details>
+          <summary>Чи можна тимчасово вимкнути сповіщення?<span>⌄</span></summary>
+          <p>Так. У профілі можна поставити всі сповіщення на паузу, не видаляючи товари з відстеження.</p>
+        </details>
+      </div>
+    </section>
 
-    <!-- Floating Telegram Quick Action Button -->
-    <a href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer" class="floating-tg" id="floating-tg" aria-label="Відкрити Price Radar в Telegram">
-      <span class="tg-pulse-ring"></span>
-      <span class="floating-tg-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.38 15.82 14.34 15.48 16.17C15.34 16.94 15.05 17.2 14.78 17.23C14.18 17.28 13.73 16.84 13.15 16.46C12.24 15.86 11.73 15.49 10.85 14.91C9.83 14.24 10.49 13.87 11.07 13.27C11.22 13.11 13.87 10.69 13.92 10.47C13.93 10.44 13.93 10.34 13.87 10.29C13.81 10.24 13.72 10.26 13.65 10.28C13.56 10.3 12.13 11.24 9.35 13.12C8.94 13.4 8.57 13.54 8.24 13.53C7.87 13.52 7.17 13.32 6.64 13.15C6 12.94 5.46 12.83 5.51 12.47C5.53 12.28 5.79 12.09 6.28 11.89C9.33 10.56 11.37 9.68 12.4 9.25C15.34 8.03 15.96 7.82 16.36 7.82C16.45 7.82 16.65 7.84 16.78 7.95C16.89 8.04 16.92 8.17 16.93 8.26C16.93 8.35 16.64 8.8 16.64 8.8Z"/>
-        </svg>
-      </span>
-      <span class="floating-tg-copy">
-        <b>Price Radar</b>
-        <small>Запустити в Telegram</small>
-      </span>
-      <em class="floating-tg-badge">1</em>
-    </a>
-  </body>
+    <section class="shell cta-wrap">
+      <div class="cta-panel">
+        <span class="bot-icon">🤖</span>
+        <h2>Ціни під контролем.<br />Покупки — без поспіху.</h2>
+        <p>Відкрийте Price Radar у Telegram і додайте перший товар за хвилину.</p>
+        <a class="primary-cta" href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer">Запустити
+          Price Radar <b>→</b></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <span class="brand-mini"><img src="price-radar-avatar.png" alt="" /> © 2026 Price Radar</span>
+    <p>Ціни й умови магазинів можуть змінюватися. Перевіряйте інформацію на сайті продавця перед покупкою.</p>
+  </footer>
+
+  <!-- Floating Telegram Quick Action Button -->
+  <a href="https://t.me/hotline_price_monitor_bot" target="_blank" rel="noreferrer" class="floating-tg" id="floating-tg"
+    aria-label="Відкрити Price Radar в Telegram">
+    <span class="tg-pulse-ring"></span>
+    <span class="floating-tg-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.38 15.82 14.34 15.48 16.17C15.34 16.94 15.05 17.2 14.78 17.23C14.18 17.28 13.73 16.84 13.15 16.46C12.24 15.86 11.73 15.49 10.85 14.91C9.83 14.24 10.49 13.87 11.07 13.27C11.22 13.11 13.87 10.69 13.92 10.47C13.93 10.44 13.93 10.34 13.87 10.29C13.81 10.24 13.72 10.26 13.65 10.28C13.56 10.3 12.13 11.24 9.35 13.12C8.94 13.4 8.57 13.54 8.24 13.53C7.87 13.52 7.17 13.32 6.64 13.15C6 12.94 5.46 12.83 5.51 12.47C5.53 12.28 5.79 12.09 6.28 11.89C9.33 10.56 11.37 9.68 12.4 9.25C15.34 8.03 15.96 7.82 16.36 7.82C16.45 7.82 16.65 7.84 16.78 7.95C16.89 8.04 16.92 8.17 16.93 8.26C16.93 8.35 16.64 8.8 16.64 8.8Z" />
+      </svg>
+    </span>
+    <span class="floating-tg-copy">
+      <b>Price Radar</b>
+      <small>Запустити в Telegram</small>
+    </span>
+    <em class="floating-tg-badge">1</em>
+  </a>
+</body>
+
 </html>

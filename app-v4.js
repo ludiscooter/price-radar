@@ -18,8 +18,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Active nav link highlight on scroll
+  const navLinks = document.querySelectorAll('.header nav a');
+  const observedSections = document.querySelectorAll('section[id]');
+  const updateActiveNavLink = () => {
+    const scrollPos = window.scrollY + 140;
+    observedSections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  };
+
   updateScrollState();
-  window.addEventListener('scroll', updateScrollState, { passive: true });
+  updateActiveNavLink();
+  window.addEventListener('scroll', () => {
+    updateScrollState();
+    updateActiveNavLink();
+  }, { passive: true });
   window.addEventListener('resize', updateScrollState, { passive: true });
 
   // Scroll reveal animations

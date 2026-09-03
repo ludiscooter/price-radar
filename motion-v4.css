@@ -3,33 +3,33 @@
    Clean animations, micro-interactions, radar pulses & transitions
    ========================================================================== */
 
-/* Header Sticky State */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  transition: all 0.3s ease;
+/* Brand Radar Ping Pulse */
+@keyframes brand-ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 240, 160, 0.8);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(16, 240, 160, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 240, 160, 0);
+  }
 }
 
-.header.scrolled {
-  height: 64px;
-  background: rgba(4, 7, 17, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+.brand-ping {
+  animation: brand-ping 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
 }
 
-/* Scroll Progress Bar */
+/* Scroll Progress Bar - Ethereal Laser Filament */
 .scroll-progress {
   position: fixed;
   left: 0;
   top: 0;
   width: 0;
-  height: 2.5px;
-  background: linear-gradient(90deg, var(--cyan), var(--green));
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan) 40%, var(--green));
   box-shadow: 0 0 12px var(--cyan);
-  z-index: 100;
+  z-index: 150;
   pointer-events: none;
   transition: width 0.1s linear;
 }
